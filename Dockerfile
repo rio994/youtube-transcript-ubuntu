@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 
 RUN git clone https://github.com/youtube-transcript-plus/youtube-transcript-api.git . && \
-    npm install
+    npm install && \
+    npm install -D wrangler@latest
 
 EXPOSE 8084
 
