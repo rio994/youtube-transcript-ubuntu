@@ -8,3 +8,9 @@ services:
     environment:
       - PORT=8084
       - HOST=0.0.0.0
+    networks:
+      - hermes-network
+
+networks:
+  hermes-network:
+    external: true
