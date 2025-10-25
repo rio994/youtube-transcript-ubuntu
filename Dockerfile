@@ -6,7 +6,10 @@ WORKDIR /app
 
 RUN git clone https://github.com/youtube-transcript-plus/youtube-transcript-api.git . && \
     npm install && \
-    npm install -D wrangler@latest
+    npm install -D wrangler@latest && \
+    sed -i 's/node_compat = true/# node_compat = true/' wrangler.toml && \
+    sed -i '/compatibility_flags/d' wrangler.toml && \
+    echo 'compatibility_flags = ["nodejs_compat"]' >> wrangler.toml
 
 EXPOSE 8084
 
